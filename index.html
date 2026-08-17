@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChakriGhor - চাকরি খুঁজুন সহজে</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #0b63ce;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .login {
+      background: white;
+      color: #0b63ce;
+      padding: 9px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b63ce, #1689ff);
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search-box button {
+      background: #ff8a00;
+      color: white;
+      border: none;
+      padding: 0 22px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 25px;
+    }
+
+    .jobs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .job-card {
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .job-card h3 {
+      color: #0b63ce;
+      margin-bottom: 10px;
+    }
+
+    .job-card p {
+      margin: 7px 0;
+      color: #555;
+    }
+
+    .apply {
+      display: inline-block;
+      margin-top: 12px;
+      background: #0b63ce;
+      color: white;
+      padding: 9px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .feature {
+      background: white;
+      text-align: center;
+      padding: 25px 15px;
+      border-radius: 10px;
+    }
+
+    .feature h3 {
+      margin: 10px 0;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box button {
+        padding: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🏠 ChakriGhor</div>
+    <a href="#" class="login">Login / Sign Up</a>
+  </header>
+
+  <section class="hero">
+    <h1>আপনার পছন্দের চাকরি খুঁজুন</h1>
+    <p>বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়</p>
+
+    <div class="search-box">
+      <input type="text" placeholder="চাকরির নাম লিখুন">
+      <input type="text" placeholder="লোকেশন">
+      <button>🔍 Search</button>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <h2 class="section-title">🔥 নতুন চাকরি</h2>
+
+    <div class="jobs">
+
+      <div class="job-card">
+        <h3>Sales Executive</h3>
+        <p>🏢 ABC Company</p>
+        <p>📍 ঢাকা</p>
+        <p>💰 বেতন: ২০,০০০ - ৩০,০০০ টাকা</p>
+        <a href="#" class="apply">Apply Now</a>
+      </div>
+
+      <div class="job-card">
+        <h3>Office Assistant</h3>
+        <p>🏢 XYZ Limited</p>
+        <p>📍 গাজীপুর</p>
+        <p>💰 বেতন: ১৫,০০০ - ২২,০০০ টাকা</p>
+        <a href="#" class="apply">Apply Now</a>
+      </div>
+
+      <div class="job-card">
+        <h3>Computer Operator</h3>
+        <p>🏢 Digital Bangladesh Ltd.</p>
+        <p>📍 ঢাকা</p>
+        <p>💰 বেতন: ১৮,০০০ - ২৫,০০০ টাকা</p>
+        <a href="#" class="apply">Apply Now</a>
+      </div>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div style="font-size:35px;">🔎</div>
+        <h3>সহজে চাকরি খুঁজুন</h3>
+        <p>আপনার পছন্দের চাকরি দ্রুত খুঁজে নিন।</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:35px;">📄</div>
+        <h3>CV তৈরি করুন</h3>
+        <p>নিজের প্রোফাইল ও CV তৈরি করুন।</p>
+      </div>
+
+      <div class="feature">
+        <div style="font-size:35px;">🏢</div>
+        <h3>চাকরি পোস্ট করুন</h3>
+        <p>কোম্পানি থেকে চাকরি পোস্ট করা যাবে।</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 ChakriGhor — All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
