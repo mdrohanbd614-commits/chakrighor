@@ -26,14 +26,34 @@ border-radius:14px;
 box-shadow:0 8px 30px rgba(0,0,0,.18)
 }
 
-.logo{text-align:center;color:#0b63ce;font-size:28px;font-weight:bold}
-.subtitle{text-align:center;color:#777;margin:8px 0 25px}
+.logo{
+text-align:center;
+color:#0b63ce;
+font-size:28px;
+font-weight:bold;
+margin-bottom:8px
+}
 
-.tabs{display:flex;border-bottom:1px solid #ddd;margin-bottom:20px}
+.subtitle{
+text-align:center;
+color:#777;
+margin-bottom:25px
+}
+
+.tabs{
+display:flex;
+margin-bottom:20px;
+border-bottom:1px solid #ddd
+}
 
 .tabs button{
-flex:1;padding:12px;border:0;background:white;
-font-weight:bold;cursor:pointer
+flex:1;
+padding:12px;
+border:0;
+background:white;
+cursor:pointer;
+font-size:15px;
+font-weight:bold
 }
 
 .tabs button.active{
@@ -44,14 +64,19 @@ border-bottom:3px solid #0b63ce
 .form{display:none}
 .form.active{display:block}
 
-label{display:block;font-weight:bold;margin-bottom:6px}
+label{
+display:block;
+margin-bottom:6px;
+font-weight:bold
+}
 
 input,select{
 width:100%;
 padding:13px;
 margin-bottom:15px;
 border:1px solid #ddd;
-border-radius:6px
+border-radius:6px;
+font-size:15px
 }
 
 .submit{
@@ -61,6 +86,7 @@ background:#0b63ce;
 color:white;
 border:0;
 border-radius:6px;
+font-size:16px;
 font-weight:bold;
 cursor:pointer
 }
@@ -73,8 +99,15 @@ border-radius:6px;
 text-align:center
 }
 
-.success{background:#e8f7ed;color:#16833a}
-.error{background:#ffe8e8;color:#c62828}
+.success{
+background:#e8f7ed;
+color:#16833a
+}
+
+.error{
+background:#ffe8e8;
+color:#c62828
+}
 
 .home{
 display:block;
@@ -134,9 +167,7 @@ onclick="loginUser()">
 Login
 </button>
 
-<div id="loginMessage"
-class="message">
-</div>
+<div id="loginMessage" class="message"></div>
 
 </div>
 
@@ -166,8 +197,8 @@ placeholder="example@gmail.com">
 <label>আপনি কে?</label>
 
 <select id="signupType">
-<option>Job Seeker</option>
-<option>Employer</option>
+<option value="Job Seeker">Job Seeker</option>
+<option value="Employer">Employer</option>
 </select>
 
 <label>Password</label>
@@ -181,16 +212,15 @@ onclick="signupUser()">
 Create Account
 </button>
 
-<div id="signupMessage"
-class="message">
-</div>
+<div id="signupMessage" class="message"></div>
 
 </div>
 
 
-<!-- HOME LINK -->
+<!-- HOME -->
 
-<a class="home" href="/">
+<a class="home"
+href="https://chakrighor.vercel.app/">
 ← ChakriGhor Home
 </a>
 
@@ -322,7 +352,7 @@ message.style.display="block";
 
 setTimeout(function(){
 
-window.location.href="/";
+window.location.href="https://chakrighor.vercel.app/";
 
 },1000);
 
