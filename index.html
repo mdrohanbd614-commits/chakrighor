@@ -3,121 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ChakriGhor - Login</title>
 
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
 
 body{
-  min-height:100vh;
-  background:linear-gradient(135deg,#0b63ce,#1689ff);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+min-height:100vh;
+background:linear-gradient(135deg,#0b63ce,#1689ff);
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
 .box{
-  background:white;
-  width:100%;
-  max-width:430px;
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 8px 30px rgba(0,0,0,.18);
+background:white;
+width:100%;
+max-width:430px;
+padding:30px;
+border-radius:14px;
+box-shadow:0 8px 30px rgba(0,0,0,.18);
 }
 
 .logo{
-  text-align:center;
-  color:#0b63ce;
-  font-size:28px;
-  font-weight:bold;
-  margin-bottom:8px;
+text-align:center;
+color:#0b63ce;
+font-size:28px;
+font-weight:bold;
+margin-bottom:8px;
 }
 
 .subtitle{
-  text-align:center;
-  color:#777;
-  margin-bottom:25px;
+text-align:center;
+color:#777;
+margin-bottom:25px;
 }
 
 .tabs{
-  display:flex;
-  margin-bottom:20px;
-  border-bottom:1px solid #ddd;
+display:flex;
+margin-bottom:20px;
+border-bottom:1px solid #ddd;
 }
 
 .tabs button{
-  flex:1;
-  padding:12px;
-  border:0;
-  background:white;
-  cursor:pointer;
-  font-size:15px;
-  font-weight:bold;
+flex:1;
+padding:12px;
+border:0;
+background:white;
+cursor:pointer;
+font-size:15px;
+font-weight:bold;
 }
 
 .tabs button.active{
-  color:#0b63ce;
-  border-bottom:3px solid #0b63ce;
+color:#0b63ce;
+border-bottom:3px solid #0b63ce;
 }
 
 .form{
-  display:none;
+display:none;
 }
 
 .form.active{
-  display:block;
+display:block;
 }
 
 label{
-  display:block;
-  margin-bottom:6px;
-  font-weight:bold;
+display:block;
+margin-bottom:6px;
+font-weight:bold;
 }
 
 input,select{
-  width:100%;
-  padding:13px;
-  margin-bottom:15px;
-  border:1px solid #ddd;
-  border-radius:6px;
-  font-size:15px;
+width:100%;
+padding:13px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:6px;
+font-size:15px;
 }
 
 .submit{
-  width:100%;
-  padding:13px;
-  background:#0b63ce;
-  color:white;
-  border:0;
-  border-radius:6px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
+width:100%;
+padding:13px;
+background:#0b63ce;
+color:white;
+border:0;
+border-radius:6px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
 }
 
 .message{
-  display:none;
-  margin-top:15px;
-  padding:12px;
-  background:#e8f7ed;
-  color:#16833a;
-  border-radius:6px;
-  text-align:center;
+display:none;
+margin-top:15px;
+padding:12px;
+border-radius:6px;
+text-align:center;
+}
+
+.success{
+background:#e8f7ed;
+color:#16833a;
+}
+
+.error{
+background:#ffe8e8;
+color:#c62828;
 }
 
 .back{
-  display:block;
-  text-align:center;
-  margin-top:20px;
-  color:#0b63ce;
-  text-decoration:none;
+display:block;
+text-align:center;
+margin-top:20px;
+color:#0b63ce;
+text-decoration:none;
 }
+
 </style>
 </head>
 
@@ -125,11 +136,14 @@ input,select{
 
 <div class="box">
 
-<div class="logo">🏠 ChakriGhor</div>
+<div class="logo">
+🏠 ChakriGhor
+</div>
 
 <div class="subtitle">
 চাকরি খুঁজুন এবং আপনার ক্যারিয়ার শুরু করুন
 </div>
+
 
 <div class="tabs">
 
@@ -137,118 +151,152 @@ input,select{
 id="loginTab"
 class="active"
 onclick="showForm('login')">
+
 Login
+
 </button>
 
 <button
 id="signupTab"
 onclick="showForm('signup')">
+
 Sign Up
+
 </button>
 
 </div>
 
 
-<!-- LOGIN -->
+<!-- LOGIN FORM -->
 
 <div
 id="loginForm"
 class="form active">
 
-<label>Email / Mobile</label>
+<label>
+Email / Mobile
+</label>
 
 <input
+id="loginUser"
 type="text"
-placeholder="Email অথবা মোবাইল নম্বর"
-required>
+placeholder="Email অথবা মোবাইল নম্বর">
 
-<label>Password</label>
+<label>
+Password
+</label>
 
 <input
+id="loginPassword"
 type="password"
-placeholder="Password"
-required>
+placeholder="Password">
 
 <button
 class="submit"
 onclick="loginUser()">
+
 Login
+
 </button>
 
 <div
 id="loginMessage"
 class="message">
-Login সফল হয়েছে!
-</div>
 
 </div>
 
+</div>
 
-<!-- SIGN UP -->
+
+<!-- SIGN UP FORM -->
 
 <div
 id="signupForm"
 class="form">
 
-<label>আপনার নাম</label>
+<label>
+আপনার নাম
+</label>
 
 <input
+id="signupName"
 type="text"
-placeholder="পুরো নাম"
-required>
+placeholder="পুরো নাম">
 
-<label>মোবাইল নম্বর</label>
+<label>
+মোবাইল নম্বর
+</label>
 
 <input
+id="signupPhone"
 type="tel"
-placeholder="01XXXXXXXXX"
-required>
+placeholder="01XXXXXXXXX">
 
-<label>Email</label>
+<label>
+Email
+</label>
 
 <input
+id="signupEmail"
 type="email"
-placeholder="example@gmail.com"
-required>
+placeholder="example@gmail.com">
 
-<label>আপনি কে?</label>
+<label>
+আপনি কে?
+</label>
 
-<select>
-<option>Job Seeker</option>
-<option>Employer</option>
+<select id="signupType">
+
+<option value="Job Seeker">
+Job Seeker
+</option>
+
+<option value="Employer">
+Employer
+</option>
+
 </select>
 
-<label>Password</label>
+<label>
+Password
+</label>
 
 <input
+id="signupPassword"
 type="password"
-placeholder="একটি Password দিন"
-required>
+placeholder="কমপক্ষে ৬ অক্ষর">
 
 <button
 class="submit"
 onclick="signupUser()">
+
 Create Account
+
 </button>
 
 <div
 id="signupMessage"
 class="message">
-Account তৈরি হয়েছে!
+
 </div>
 
 </div>
+
 
 <a
 class="back"
 href="index.html">
+
 ← ChakriGhor Home
+
 </a>
 
 </div>
 
 
 <script>
+
+/* FORM CHANGE */
 
 function showForm(type){
 
@@ -264,39 +312,195 @@ document.getElementById("loginTab");
 const signupTab =
 document.getElementById("signupTab");
 
-if(type === "login"){
+
+if(type==="login"){
 
 loginForm.classList.add("active");
+
 signupForm.classList.remove("active");
 
 loginTab.classList.add("active");
+
 signupTab.classList.remove("active");
 
 }else{
 
 signupForm.classList.add("active");
+
 loginForm.classList.remove("active");
 
 signupTab.classList.add("active");
+
 loginTab.classList.remove("active");
 
 }
 
 }
 
-function loginUser(){
 
-document
-.getElementById("loginMessage")
-.style.display="block";
-
-}
+/* SIGN UP */
 
 function signupUser(){
 
-document
-.getElementById("signupMessage")
-.style.display="block";
+const name =
+document.getElementById("signupName").value.trim();
+
+const phone =
+document.getElementById("signupPhone").value.trim();
+
+const email =
+document.getElementById("signupEmail").value.trim();
+
+const type =
+document.getElementById("signupType").value;
+
+const password =
+document.getElementById("signupPassword").value;
+
+const message =
+document.getElementById("signupMessage");
+
+
+if(!name || !phone || !email || !password){
+
+message.className="message error";
+
+message.innerText=
+"সব তথ্য পূরণ করুন।";
+
+message.style.display="block";
+
+return;
+
+}
+
+
+if(password.length<6){
+
+message.className="message error";
+
+message.innerText=
+"Password কমপক্ষে ৬ অক্ষরের হতে হবে।";
+
+message.style.display="block";
+
+return;
+
+}
+
+
+const user={
+
+name:name,
+
+phone:phone,
+
+email:email,
+
+type:type,
+
+password:password
+
+};
+
+
+localStorage.setItem(
+"chakrighorUser",
+JSON.stringify(user)
+);
+
+
+message.className="message success";
+
+message.innerText=
+"✅ Account তৈরি হয়েছে! এখন Login করুন।";
+
+message.style.display="block";
+
+
+setTimeout(function(){
+
+showForm("login");
+
+},1000);
+
+}
+
+
+/* LOGIN */
+
+function loginUser(){
+
+const username =
+document.getElementById("loginUser").value.trim();
+
+const password =
+document.getElementById("loginPassword").value;
+
+
+const savedUser =
+localStorage.getItem("chakrighorUser");
+
+
+const message =
+document.getElementById("loginMessage");
+
+
+if(!savedUser){
+
+message.className="message error";
+
+message.innerText=
+"❌ আগে Sign Up করে Account তৈরি করুন।";
+
+message.style.display="block";
+
+return;
+
+}
+
+
+const user =
+JSON.parse(savedUser);
+
+
+const correctUser =
+username===user.email ||
+username===user.phone;
+
+
+if(correctUser && password===user.password){
+
+localStorage.setItem(
+"chakrighorLoggedIn",
+"true"
+);
+
+
+message.className="message success";
+
+message.innerText=
+"✅ Login সফল হয়েছে!";
+
+message.style.display="block";
+
+
+setTimeout(function(){
+
+window.location.href="index.html";
+
+},1000);
+
+}else{
+
+message.className="message error";
+
+message.innerText=
+"❌ Email/Mobile অথবা Password ভুল।";
+
+message.style.display="block";
+
+}
 
 }
 
