@@ -3,39 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChakriGhor</title>
+<title>ChakriGhor - চাকরি খুঁজুন</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f7fb;color:#222}
-header{background:#0b63ce;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:25px;font-weight:bold}
-.login{background:white;color:#0b63ce;padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:bold}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-.hero{background:linear-gradient(135deg,#0b63ce,#1689ff);color:white;text-align:center;padding:55px 20px}
-.hero h1{font-size:34px;margin-bottom:12px}
-.hero p{font-size:17px;margin-bottom:25px}
+body{
+  background:#f5f7fb;
+  color:#222;
+}
 
-.search-box{max-width:750px;margin:auto;background:white;padding:10px;border-radius:8px;display:flex;gap:10px}
-.search-box input{flex:1;padding:14px;border:1px solid #ddd;border-radius:5px;font-size:15px}
-.search-box button{background:#ff8a00;color:white;border:0;padding:0 22px;border-radius:5px;font-weight:bold;cursor:pointer}
+header{
+  background:#0b63ce;
+  color:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-.container{max-width:1100px;margin:35px auto;padding:0 20px}
-.section-title{text-align:center;margin-bottom:25px;font-size:25px}
-.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.job-card{background:white;padding:22px;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.08)}
-.job-card h3{color:#0b63ce;margin-bottom:10px}
-.job-card p{margin:7px 0;color:#555}
-.apply{display:inline-block;margin-top:12px;background:#0b63ce;color:white;padding:9px 15px;border-radius:5px;text-decoration:none}
+.logo{
+  font-size:25px;
+  font-weight:bold;
+}
 
-.no-result{text-align:center;padding:30px;display:none;color:#777}
+.login{
+  background:white;
+  color:#0b63ce;
+  padding:9px 16px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-footer{margin-top:40px;background:#111827;color:white;text-align:center;padding:25px}
+.hero{
+  background:linear-gradient(135deg,#0b63ce,#1689ff);
+  color:white;
+  text-align:center;
+  padding:55px 20px;
+}
+
+.hero h1{
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  font-size:17px;
+  margin-bottom:25px;
+}
+
+.search-box{
+  max-width:750px;
+  margin:auto;
+  background:white;
+  padding:10px;
+  border-radius:8px;
+  display:flex;
+  gap:10px;
+}
+
+.search-box input{
+  flex:1;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:5px;
+  font-size:15px;
+}
+
+.search-box button{
+  background:#ff8a00;
+  color:white;
+  border:0;
+  padding:0 22px;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.container{
+  max-width:1100px;
+  margin:35px auto;
+  padding:0 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:25px;
+}
+
+.jobs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.job-card{
+  background:white;
+  padding:22px;
+  border-radius:10px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.job-card h3{
+  color:#0b63ce;
+  margin-bottom:10px;
+}
+
+.job-card p{
+  margin:7px 0;
+  color:#555;
+}
+
+.apply{
+  display:inline-block;
+  margin-top:12px;
+  background:#0b63ce;
+  color:white;
+  padding:10px 17px;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.no-result{
+  text-align:center;
+  padding:30px;
+  display:none;
+  color:#777;
+}
+
+/* Apply Form */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.6);
+  padding:20px;
+  overflow:auto;
+}
+
+.form-box{
+  background:white;
+  max-width:500px;
+  margin:40px auto;
+  padding:25px;
+  border-radius:12px;
+}
+
+.form-box h2{
+  color:#0b63ce;
+  margin-bottom:8px;
+}
+
+.form-box p{
+  color:#666;
+  margin-bottom:20px;
+}
+
+.form-box input{
+  width:100%;
+  padding:13px;
+  margin-bottom:13px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  font-size:15px;
+}
+
+.form-box label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
+}
+
+.submit{
+  width:100%;
+  padding:13px;
+  background:#0b63ce;
+  color:white;
+  border:0;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.close{
+  float:right;
+  font-size:25px;
+  cursor:pointer;
+  color:#777;
+}
+
+.success{
+  display:none;
+  background:#e8f7ed;
+  color:#16833a;
+  padding:15px;
+  border-radius:7px;
+  margin-top:15px;
+  text-align:center;
+}
+
+footer{
+  margin-top:40px;
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
 
 @media(max-width:600px){
-.hero h1{font-size:27px}
-.search-box{flex-direction:column}
-.search-box button{padding:13px}
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .search-box{
+    flex-direction:column;
+  }
+
+  .search-box button{
+    padding:13px;
+  }
+
+  header{
+    padding:15px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
 }
 </style>
 </head>
@@ -43,19 +253,32 @@ footer{margin-top:40px;background:#111827;color:white;text-align:center;padding:
 <body>
 
 <header>
-<div class="logo">🏠 ChakriGhor</div>
-<a href="#" class="login">Login / Sign Up</a>
+  <div class="logo">🏠 ChakriGhor</div>
+  <a href="#" class="login">Login / Sign Up</a>
 </header>
 
 <section class="hero">
-<h1>আপনার পছন্দের চাকরি খুঁজুন</h1>
-<p>বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়</p>
 
-<div class="search-box">
-<input id="jobSearch" type="text" placeholder="যেমন: Sales, Driver, Office">
-<input id="locationSearch" type="text" placeholder="লোকেশন">
-<button onclick="searchJobs()">🔍 Search</button>
-</div>
+  <h1>আপনার পছন্দের চাকরি খুঁজুন</h1>
+
+  <p>বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়</p>
+
+  <div class="search-box">
+
+    <input
+      id="jobSearch"
+      type="text"
+      placeholder="যেমন: Sales, Driver, Office">
+
+    <input
+      id="locationSearch"
+      type="text"
+      placeholder="লোকেশন">
+
+    <button onclick="searchJobs()">🔍 Search</button>
+
+  </div>
+
 </section>
 
 <div class="container">
@@ -64,85 +287,313 @@ footer{margin-top:40px;background:#111827;color:white;text-align:center;padding:
 
 <div class="jobs" id="jobList">
 
-<div class="job-card" data-job="sales executive" data-location="ঢাকা">
+<!-- Job 1 -->
+
+<div
+class="job-card"
+data-job="sales executive"
+data-location="ঢাকা">
+
 <h3>Sales Executive</h3>
+
 <p>🏢 ABC Company</p>
+
 <p>📍 ঢাকা</p>
+
 <p>💰 ২০,০০০ - ৩০,০০০ টাকা</p>
-<a href="#" class="apply">Apply Now</a>
+
+<button
+class="apply"
+onclick="openApply('Sales Executive')">
+
+Apply Now
+
+</button>
+
 </div>
 
-<div class="job-card" data-job="office assistant" data-location="গাজীপুর">
+
+<!-- Job 2 -->
+
+<div
+class="job-card"
+data-job="office assistant"
+data-location="গাজীপুর">
+
 <h3>Office Assistant</h3>
+
 <p>🏢 XYZ Limited</p>
+
 <p>📍 গাজীপুর</p>
+
 <p>💰 ১৫,০০০ - ২২,০০০ টাকা</p>
-<a href="#" class="apply">Apply Now</a>
+
+<button
+class="apply"
+onclick="openApply('Office Assistant')">
+
+Apply Now
+
+</button>
+
 </div>
 
-<div class="job-card" data-job="computer operator" data-location="ঢাকা">
+
+<!-- Job 3 -->
+
+<div
+class="job-card"
+data-job="computer operator"
+data-location="ঢাকা">
+
 <h3>Computer Operator</h3>
+
 <p>🏢 Digital Bangladesh Ltd.</p>
+
 <p>📍 ঢাকা</p>
+
 <p>💰 ১৮,০০০ - ২৫,০০০ টাকা</p>
-<a href="#" class="apply">Apply Now</a>
+
+<button
+class="apply"
+onclick="openApply('Computer Operator')">
+
+Apply Now
+
+</button>
+
 </div>
 
-<div class="job-card" data-job="driver" data-location="ঢাকা">
+
+<!-- Job 4 -->
+
+<div
+class="job-card"
+data-job="driver"
+data-location="ঢাকা">
+
 <h3>Private Car Driver</h3>
+
 <p>🏢 Private Company</p>
+
 <p>📍 ঢাকা</p>
+
 <p>💰 ২০,০০০ - ৩৫,০০০ টাকা</p>
-<a href="#" class="apply">Apply Now</a>
-</div>
+
+<button
+class="apply"
+onclick="openApply('Private Car Driver')">
+
+Apply Now
+
+</button>
 
 </div>
 
-<div class="no-result" id="noResult">
+</div>
+
+<div
+class="no-result"
+id="noResult">
+
 😔 কোনো চাকরি পাওয়া যায়নি।
+
 </div>
 
 </div>
+
+
+<!-- APPLY MODAL -->
+
+<div
+class="modal"
+id="applyModal">
+
+<div class="form-box">
+
+<span
+class="close"
+onclick="closeApply()">
+
+×
+</span>
+
+<h2>চাকরির জন্য আবেদন</h2>
+
+<p id="selectedJob"></p>
+
+<form onsubmit="submitApplication(event)">
+
+<label>আপনার নাম</label>
+
+<input
+id="applicantName"
+type="text"
+placeholder="পুরো নাম লিখুন"
+required>
+
+
+<label>মোবাইল নম্বর</label>
+
+<input
+id="applicantPhone"
+type="tel"
+placeholder="01XXXXXXXXX"
+required>
+
+
+<label>Email</label>
+
+<input
+id="applicantEmail"
+type="email"
+placeholder="example@gmail.com"
+required>
+
+
+<label>CV / Resume</label>
+
+<input
+id="applicantCV"
+type="file"
+accept=".pdf,.doc,.docx"
+required>
+
+
+<button
+class="submit"
+type="submit">
+
+আবেদন জমা দিন
+
+</button>
+
+<div
+class="success"
+id="successMessage">
+
+✅ আপনার আবেদন গ্রহণ করা হয়েছে!
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
 
 <footer>
+
 <p>© 2026 ChakriGhor — All Rights Reserved</p>
+
 </footer>
 
+
 <script>
+
+/* SEARCH */
+
 function searchJobs(){
 
-const job=document.getElementById("jobSearch").value.toLowerCase().trim();
-const location=document.getElementById("locationSearch").value.toLowerCase().trim();
+const job =
+document
+.getElementById("jobSearch")
+.value
+.toLowerCase()
+.trim();
 
-const cards=document.querySelectorAll(".job-card");
-let found=0;
+const location =
+document
+.getElementById("locationSearch")
+.value
+.toLowerCase()
+.trim();
 
-cards.forEach(card=>{
+const cards =
+document.querySelectorAll(".job-card");
 
-const jobName=card.dataset.job.toLowerCase();
-const jobLocation=card.dataset.location.toLowerCase();
+let found = 0;
 
-const jobMatch=!job || jobName.includes(job);
-const locationMatch=!location || jobLocation.includes(location);
+cards.forEach(card => {
+
+const jobName =
+card.dataset.job.toLowerCase();
+
+const jobLocation =
+card.dataset.location.toLowerCase();
+
+const jobMatch =
+!job || jobName.includes(job);
+
+const locationMatch =
+!location || jobLocation.includes(location);
 
 if(jobMatch && locationMatch){
+
 card.style.display="block";
+
 found++;
+
 }else{
+
 card.style.display="none";
+
 }
 
 });
 
-document.getElementById("noResult").style.display=
-found===0 ? "block" : "none";
-
-window.scrollTo({
-top:document.getElementById("jobList").offsetTop-100,
-behavior:"smooth"
-});
+document
+.getElementById("noResult")
+.style.display =
+found === 0 ? "block" : "none";
 
 }
+
+
+/* OPEN APPLY FORM */
+
+function openApply(jobName){
+
+document
+.getElementById("selectedJob")
+.innerText =
+"আপনি আবেদন করছেন: " + jobName;
+
+document
+.getElementById("applyModal")
+.style.display="block";
+
+document
+.getElementById("successMessage")
+.style.display="none";
+
+}
+
+
+/* CLOSE FORM */
+
+function closeApply(){
+
+document
+.getElementById("applyModal")
+.style.display="none";
+
+}
+
+
+/* SUBMIT APPLICATION */
+
+function submitApplication(event){
+
+event.preventDefault();
+
+document
+.getElementById("successMessage")
+.style.display="block";
+
+}
+
 </script>
 
 </body>
