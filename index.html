@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChakriGhor - চাকরি খুঁজুন</title>
+<title>ChakriGhor - Login</title>
 
 <style>
 *{
@@ -14,178 +14,79 @@
 }
 
 body{
-  background:#f5f7fb;
-  color:#222;
+  min-height:100vh;
+  background:linear-gradient(135deg,#0b63ce,#1689ff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
 
-header{
-  background:#0b63ce;
-  color:white;
-  padding:18px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.box{
+  background:white;
+  width:100%;
+  max-width:430px;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 8px 30px rgba(0,0,0,.18);
 }
 
 .logo{
-  font-size:25px;
-  font-weight:bold;
-}
-
-.login{
-  background:white;
-  color:#0b63ce;
-  padding:9px 16px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.hero{
-  background:linear-gradient(135deg,#0b63ce,#1689ff);
-  color:white;
   text-align:center;
-  padding:55px 20px;
-}
-
-.hero h1{
-  font-size:34px;
-  margin-bottom:12px;
-}
-
-.hero p{
-  font-size:17px;
-  margin-bottom:25px;
-}
-
-.search-box{
-  max-width:750px;
-  margin:auto;
-  background:white;
-  padding:10px;
-  border-radius:8px;
-  display:flex;
-  gap:10px;
-}
-
-.search-box input{
-  flex:1;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:5px;
-  font-size:15px;
-}
-
-.search-box button{
-  background:#ff8a00;
-  color:white;
-  border:0;
-  padding:0 22px;
-  border-radius:5px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.container{
-  max-width:1100px;
-  margin:35px auto;
-  padding:0 20px;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:25px;
-  font-size:25px;
-}
-
-.jobs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
-
-.job-card{
-  background:white;
-  padding:22px;
-  border-radius:10px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.job-card h3{
   color:#0b63ce;
-  margin-bottom:10px;
-}
-
-.job-card p{
-  margin:7px 0;
-  color:#555;
-}
-
-.apply{
-  display:inline-block;
-  margin-top:12px;
-  background:#0b63ce;
-  color:white;
-  padding:10px 17px;
-  border-radius:5px;
-  border:0;
-  cursor:pointer;
+  font-size:28px;
   font-weight:bold;
-}
-
-.no-result{
-  text-align:center;
-  padding:30px;
-  display:none;
-  color:#777;
-}
-
-/* Apply Form */
-
-.modal{
-  display:none;
-  position:fixed;
-  z-index:1000;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.6);
-  padding:20px;
-  overflow:auto;
-}
-
-.form-box{
-  background:white;
-  max-width:500px;
-  margin:40px auto;
-  padding:25px;
-  border-radius:12px;
-}
-
-.form-box h2{
-  color:#0b63ce;
   margin-bottom:8px;
 }
 
-.form-box p{
-  color:#666;
+.subtitle{
+  text-align:center;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.tabs{
+  display:flex;
   margin-bottom:20px;
+  border-bottom:1px solid #ddd;
 }
 
-.form-box input{
-  width:100%;
-  padding:13px;
-  margin-bottom:13px;
-  border:1px solid #ddd;
-  border-radius:6px;
+.tabs button{
+  flex:1;
+  padding:12px;
+  border:0;
+  background:white;
+  cursor:pointer;
   font-size:15px;
+  font-weight:bold;
 }
 
-.form-box label{
+.tabs button.active{
+  color:#0b63ce;
+  border-bottom:3px solid #0b63ce;
+}
+
+.form{
+  display:none;
+}
+
+.form.active{
+  display:block;
+}
+
+label{
   display:block;
   margin-bottom:6px;
   font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:13px;
+  margin-bottom:15px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  font-size:15px;
 }
 
 .submit{
@@ -200,396 +101,201 @@ header{
   cursor:pointer;
 }
 
-.close{
-  float:right;
-  font-size:25px;
-  cursor:pointer;
-  color:#777;
-}
-
-.success{
+.message{
   display:none;
+  margin-top:15px;
+  padding:12px;
   background:#e8f7ed;
   color:#16833a;
-  padding:15px;
-  border-radius:7px;
-  margin-top:15px;
+  border-radius:6px;
   text-align:center;
 }
 
-footer{
-  margin-top:40px;
-  background:#111827;
-  color:white;
+.back{
+  display:block;
   text-align:center;
-  padding:25px;
-}
-
-@media(max-width:600px){
-
-  .hero h1{
-    font-size:27px;
-  }
-
-  .search-box{
-    flex-direction:column;
-  }
-
-  .search-box button{
-    padding:13px;
-  }
-
-  header{
-    padding:15px;
-  }
-
-  .logo{
-    font-size:21px;
-  }
+  margin-top:20px;
+  color:#0b63ce;
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">🏠 ChakriGhor</div>
-  <a href="#" class="login">Login / Sign Up</a>
-</header>
+<div class="box">
 
-<section class="hero">
+<div class="logo">🏠 ChakriGhor</div>
 
-  <h1>আপনার পছন্দের চাকরি খুঁজুন</h1>
+<div class="subtitle">
+চাকরি খুঁজুন এবং আপনার ক্যারিয়ার শুরু করুন
+</div>
 
-  <p>বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়</p>
-
-  <div class="search-box">
-
-    <input
-      id="jobSearch"
-      type="text"
-      placeholder="যেমন: Sales, Driver, Office">
-
-    <input
-      id="locationSearch"
-      type="text"
-      placeholder="লোকেশন">
-
-    <button onclick="searchJobs()">🔍 Search</button>
-
-  </div>
-
-</section>
-
-<div class="container">
-
-<h2 class="section-title">🔥 নতুন চাকরি</h2>
-
-<div class="jobs" id="jobList">
-
-<!-- Job 1 -->
-
-<div
-class="job-card"
-data-job="sales executive"
-data-location="ঢাকা">
-
-<h3>Sales Executive</h3>
-
-<p>🏢 ABC Company</p>
-
-<p>📍 ঢাকা</p>
-
-<p>💰 ২০,০০০ - ৩০,০০০ টাকা</p>
+<div class="tabs">
 
 <button
-class="apply"
-onclick="openApply('Sales Executive')">
+id="loginTab"
+class="active"
+onclick="showForm('login')">
+Login
+</button>
 
-Apply Now
-
+<button
+id="signupTab"
+onclick="showForm('signup')">
+Sign Up
 </button>
 
 </div>
 
 
-<!-- Job 2 -->
+<!-- LOGIN -->
 
 <div
-class="job-card"
-data-job="office assistant"
-data-location="গাজীপুর">
+id="loginForm"
+class="form active">
 
-<h3>Office Assistant</h3>
+<label>Email / Mobile</label>
 
-<p>🏢 XYZ Limited</p>
+<input
+type="text"
+placeholder="Email অথবা মোবাইল নম্বর"
+required>
 
-<p>📍 গাজীপুর</p>
+<label>Password</label>
 
-<p>💰 ১৫,০০০ - ২২,০০০ টাকা</p>
+<input
+type="password"
+placeholder="Password"
+required>
 
 <button
-class="apply"
-onclick="openApply('Office Assistant')">
-
-Apply Now
-
+class="submit"
+onclick="loginUser()">
+Login
 </button>
 
+<div
+id="loginMessage"
+class="message">
+Login সফল হয়েছে!
+</div>
+
 </div>
 
 
-<!-- Job 3 -->
+<!-- SIGN UP -->
 
 <div
-class="job-card"
-data-job="computer operator"
-data-location="ঢাকা">
-
-<h3>Computer Operator</h3>
-
-<p>🏢 Digital Bangladesh Ltd.</p>
-
-<p>📍 ঢাকা</p>
-
-<p>💰 ১৮,০০০ - ২৫,০০০ টাকা</p>
-
-<button
-class="apply"
-onclick="openApply('Computer Operator')">
-
-Apply Now
-
-</button>
-
-</div>
-
-
-<!-- Job 4 -->
-
-<div
-class="job-card"
-data-job="driver"
-data-location="ঢাকা">
-
-<h3>Private Car Driver</h3>
-
-<p>🏢 Private Company</p>
-
-<p>📍 ঢাকা</p>
-
-<p>💰 ২০,০০০ - ৩৫,০০০ টাকা</p>
-
-<button
-class="apply"
-onclick="openApply('Private Car Driver')">
-
-Apply Now
-
-</button>
-
-</div>
-
-</div>
-
-<div
-class="no-result"
-id="noResult">
-
-😔 কোনো চাকরি পাওয়া যায়নি।
-
-</div>
-
-</div>
-
-
-<!-- APPLY MODAL -->
-
-<div
-class="modal"
-id="applyModal">
-
-<div class="form-box">
-
-<span
-class="close"
-onclick="closeApply()">
-
-×
-</span>
-
-<h2>চাকরির জন্য আবেদন</h2>
-
-<p id="selectedJob"></p>
-
-<form onsubmit="submitApplication(event)">
+id="signupForm"
+class="form">
 
 <label>আপনার নাম</label>
 
 <input
-id="applicantName"
 type="text"
-placeholder="পুরো নাম লিখুন"
+placeholder="পুরো নাম"
 required>
-
 
 <label>মোবাইল নম্বর</label>
 
 <input
-id="applicantPhone"
 type="tel"
 placeholder="01XXXXXXXXX"
 required>
 
-
 <label>Email</label>
 
 <input
-id="applicantEmail"
 type="email"
 placeholder="example@gmail.com"
 required>
 
+<label>আপনি কে?</label>
 
-<label>CV / Resume</label>
+<select>
+<option>Job Seeker</option>
+<option>Employer</option>
+</select>
+
+<label>Password</label>
 
 <input
-id="applicantCV"
-type="file"
-accept=".pdf,.doc,.docx"
+type="password"
+placeholder="একটি Password দিন"
 required>
-
 
 <button
 class="submit"
-type="submit">
-
-আবেদন জমা দিন
-
+onclick="signupUser()">
+Create Account
 </button>
 
 <div
-class="success"
-id="successMessage">
-
-✅ আপনার আবেদন গ্রহণ করা হয়েছে!
-
-</div>
-
-</form>
-
+id="signupMessage"
+class="message">
+Account তৈরি হয়েছে!
 </div>
 
 </div>
 
+<a
+class="back"
+href="index.html">
+← ChakriGhor Home
+</a>
 
-<footer>
-
-<p>© 2026 ChakriGhor — All Rights Reserved</p>
-
-</footer>
+</div>
 
 
 <script>
 
-/* SEARCH */
+function showForm(type){
 
-function searchJobs(){
+const loginForm =
+document.getElementById("loginForm");
 
-const job =
-document
-.getElementById("jobSearch")
-.value
-.toLowerCase()
-.trim();
+const signupForm =
+document.getElementById("signupForm");
 
-const location =
-document
-.getElementById("locationSearch")
-.value
-.toLowerCase()
-.trim();
+const loginTab =
+document.getElementById("loginTab");
 
-const cards =
-document.querySelectorAll(".job-card");
+const signupTab =
+document.getElementById("signupTab");
 
-let found = 0;
+if(type === "login"){
 
-cards.forEach(card => {
+loginForm.classList.add("active");
+signupForm.classList.remove("active");
 
-const jobName =
-card.dataset.job.toLowerCase();
-
-const jobLocation =
-card.dataset.location.toLowerCase();
-
-const jobMatch =
-!job || jobName.includes(job);
-
-const locationMatch =
-!location || jobLocation.includes(location);
-
-if(jobMatch && locationMatch){
-
-card.style.display="block";
-
-found++;
+loginTab.classList.add("active");
+signupTab.classList.remove("active");
 
 }else{
 
-card.style.display="none";
+signupForm.classList.add("active");
+loginForm.classList.remove("active");
+
+signupTab.classList.add("active");
+loginTab.classList.remove("active");
 
 }
 
-});
-
-document
-.getElementById("noResult")
-.style.display =
-found === 0 ? "block" : "none";
-
 }
 
-
-/* OPEN APPLY FORM */
-
-function openApply(jobName){
+function loginUser(){
 
 document
-.getElementById("selectedJob")
-.innerText =
-"আপনি আবেদন করছেন: " + jobName;
-
-document
-.getElementById("applyModal")
+.getElementById("loginMessage")
 .style.display="block";
 
-document
-.getElementById("successMessage")
-.style.display="none";
-
 }
 
-
-/* CLOSE FORM */
-
-function closeApply(){
+function signupUser(){
 
 document
-.getElementById("applyModal")
-.style.display="none";
-
-}
-
-
-/* SUBMIT APPLICATION */
-
-function submitApplication(event){
-
-event.preventDefault();
-
-document
-.getElementById("successMessage")
+.getElementById("signupMessage")
 .style.display="block";
 
 }
