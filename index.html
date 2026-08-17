@@ -1,1 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ChakriGhor - চাকরি খুঁজুন</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+}
+
+header{
+background:#0b63ce;
+color:white;
+padding:18px 20px;
+}
+
+.nav{
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+.login{
+background:white;
+color:#0b63ce;
+padding:10px 16px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background:linear-gradient(135deg,#0b63ce,#1689ff);
+color:white;
+text-align:center;
+padding:55px 20px;
+}
+
+.hero h1{
+font-size:34px;
+margin-bottom:12px;
+}
+
+.hero p{
+font-size:17px;
+margin-bottom:25px;
+}
+
+.search{
+max-width:650px;
+margin:auto;
+display:flex;
+gap:8px;
+}
+
+.search input{
+flex:1;
+padding:14px;
+border:0;
+border-radius:6px;
+font-size:16px;
+}
+
+.search button{
+padding:14px 20px;
+border:0;
+border-radius:6px;
+background:#083f91;
+color:white;
+font-weight:bold;
+}
+
+.container{
+max-width:1100px;
+margin:35px auto;
+padding:0 20px;
+}
+
+.title{
+text-align:center;
+margin-bottom:25px;
+}
+
+.jobs{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.job{
+background:white;
+padding:22px;
+border-radius:10px;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.job h3{
+color:#0b63ce;
+margin-bottom:12px;
+}
+
+.job p{
+margin:7px 0;
+color:#555;
+}
+
+.apply{
+display:block;
+text-align:center;
+margin-top:18px;
+background:#0b63ce;
+color:white;
+padding:11px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+margin-top:50px;
+background:#10233f;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+🏠 ChakriGhor
+</div>
+
+<a class="login" href="login.html">
+Login / Sign Up
+</a>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+চাকরি খুঁজুন সহজেই
+</h1>
+
+<p>
+আপনার পছন্দের চাকরি খুঁজুন এবং ক্যারিয়ার শুরু করুন
+</p>
+
+<div class="search">
+
+<input
+id="searchInput"
+type="text"
+placeholder="চাকরির নাম লিখুন...">
+
+<button onclick="searchJobs()">
+Search
+</button>
+
+</div>
+
+</section>
+
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+সাম্প্রতিক চাকরি
+</h2>
+
+</div>
+
+
+<div class="jobs" id="jobList">
+
+
+<div class="job">
+
+<h3>
+Sales Executive
+</h3>
+
+<p>🏢 কোম্পানি: ABC Company</p>
+
+<p>📍 ঢাকা</p>
+
+<p>💰 বেতন: ২০,০০০ - ৩০,০০০ টাকা</p>
+
+<a
+class="apply"
+href="login.html">
+Apply Now
+</a>
+
+</div>
+
+
+<div class="job">
+
+<h3>
+Office Assistant
+</h3>
+
+<p>🏢 কোম্পানি: XYZ Limited</p>
+
+<p>📍 ঢাকা</p>
+
+<p>💰 বেতন: ১৫,০০০ - ২২,০০০ টাকা</p>
+
+<a
+class="apply"
+href="login.html">
+Apply Now
+</a>
+
+</div>
+
+
+<div class="job">
+
+<h3>
+Computer Operator
+</h3>
+
+<p>🏢 কোম্পানি: Digital BD</p>
+
+<p>📍 গাজীপুর</p>
+
+<p>💰 বেতন: ১৮,০০০ - ২৫,০০০ টাকা</p>
+
+<a
+class="apply"
+href="login.html">
+Apply Now
+</a>
+
+</div>
+
+
+<div class="job">
+
+<h3>
+Delivery Rider
+</h3>
+
+<p>🏢 কোম্পানি: Fast Delivery</p>
+
+<p>📍 ঢাকা</p>
+
+<p>💰 বেতন: ২০,০০০ - ৩৫,০০০ টাকা</p>
+
+<a
+class="apply"
+href="login.html">
+Apply Now
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 ChakriGhor  
+<br>
+চাকরি খুঁজুন • আবেদন করুন • ক্যারিয়ার গড়ুন
+
+</footer>
+
+
+<script>
+
+function searchJobs(){
+
+const search =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+const jobs =
+document.querySelectorAll(".job");
+
+jobs.forEach(function(job){
+
+const text =
+job.innerText.toLowerCase();
+
+if(text.includes(search)){
+
+job.style.display="block";
+
+}else{
+
+job.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
