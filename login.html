@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChakriGhor - Login</title>
 
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+header {
+  background: #0757c8;
+  color: white;
+  padding: 15px;
+}
+
+.nav {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.home {
+  color: white;
+  text-decoration: none;
+}
+
+.box {
+  max-width: 400px;
+  margin: 60px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px #ddd;
+}
+
+h2 {
+  text-align: center;
+  color: #0757c8;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+  border: 0;
+  border-radius: 7px;
+  background: #0757c8;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.signup {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup a {
+  color: #0757c8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#msg {
+  text-align: center;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">ChakriGhor</div>
+    <a class="home" href="index.html">🏠 Home</a>
+  </div>
+</header>
+
+<div class="box">
+
+  <h2>Login</h2>
+
+  <form onsubmit="login(event)">
+
+    <label>মোবাইল / Email</label>
+    <input
+      id="email"
+      type="text"
+      placeholder="মোবাইল বা Email লিখুন"
+      required
+    >
+
+    <label>Password</label>
+    <input
+      id="password"
+      type="password"
+      placeholder="Password লিখুন"
+      required
+    >
+
+    <button type="submit">Login</button>
+
+  </form>
+
+  <div id="msg"></div>
+
+  <div class="signup">
+    Account নেই?
+    <a href="signup.html">Sign Up</a>
+  </div>
+
+</div>
+
+<script>
+function login(event) {
+  event.preventDefault();
+
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  if (email && password) {
+    localStorage.setItem("chakrighor_user", email);
+
+    document.getElementById("msg").innerHTML =
+      "✅ Login সফল হয়েছে!";
+
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 800);
+  }
+}
+</script>
+
+</body>
+</html>
