@@ -7,126 +7,115 @@
 <title>ChakriGhor Login</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f6fc;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#f1f5f9;
-    min-height:100vh;
+header {
+    background: #0757c8;
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header{
-    background:#0757c8;
-    padding:16px 20px;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
+.home {
+    color: white;
+    text-decoration: none;
 }
 
-.home{
-    color:white;
-    text-decoration:none;
-    font-size:16px;
+.container {
+    width: 90%;
+    max-width: 380px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
 }
 
-.login-container{
-    width:90%;
-    max-width:400px;
-    background:white;
-    margin:60px auto;
-    padding:30px 25px;
-    border-radius:12px;
-    box-shadow:0 4px 20px rgba(0,0,0,.12);
+h2 {
+    text-align: center;
+    color: #0757c8;
 }
 
-h2{
-    text-align:center;
-    color:#0757c8;
-    margin-bottom:25px;
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;
 }
 
-label{
-    display:block;
-    margin-bottom:7px;
-    font-weight:bold;
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
 }
 
-input{
-    width:100%;
-    padding:13px;
-    border:1px solid #ccc;
-    border-radius:7px;
-    margin-bottom:18px;
-    font-size:15px;
+button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px;
+    background: #0757c8;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
 }
 
-.login-btn{
-    width:100%;
-    padding:13px;
-    border:none;
-    border-radius:7px;
-    background:#0757c8;
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
+.signup {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.signup{
-    text-align:center;
-    margin-top:22px;
+.signup a {
+    color: #0757c8;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.signup a{
-    color:#0757c8;
-    font-weight:bold;
-    text-decoration:none;
-}
-
-.message{
-    text-align:center;
-    margin-top:15px;
-    font-weight:bold;
+#message {
+    text-align: center;
+    margin-top: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<header>
 
-    <div class="logo">
-        ChakriGhor
-    </div>
+    <div class="logo">ChakriGhor</div>
 
     <a class="home" href="index.html">
         🏠 Home
     </a>
 
-</div>
+</header>
 
-<div class="login-container">
+<div class="container">
 
-    <h2>Login করুন</h2>
+    <h2>Login</h2>
 
     <form id="loginForm">
 
-        <label>মোবাইল / Email</label>
+        <label>Email অথবা মোবাইল</label>
 
         <input
             type="text"
-            id="email"
-            placeholder="মোবাইল বা Email লিখুন"
+            id="username"
+            placeholder="Email অথবা মোবাইল নম্বর"
             required
         >
 
@@ -135,50 +124,48 @@ input{
         <input
             type="password"
             id="password"
-            placeholder="Password লিখুন"
+            placeholder="Password"
             required
         >
 
-        <button class="login-btn" type="submit">
+        <button type="submit">
             Login
         </button>
 
     </form>
 
-    <div class="message" id="message"></div>
+    <div id="message"></div>
 
     <div class="signup">
-        নতুন User?
-        <a href="signup.html">Sign Up করুন</a>
+        Account নেই?
+        <a href="signup.html">Sign Up</a>
     </div>
 
 </div>
 
 <script>
 
-document.getElementById("loginForm").addEventListener("submit", function(e){
+document.getElementById("loginForm").onsubmit = function(event) {
 
-    e.preventDefault();
+    event.preventDefault();
 
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-    if(email !== "" && password !== ""){
+    if (username && password) {
 
-        localStorage.setItem("chakrighorUser", email);
+        localStorage.setItem("chakrighor_user", username);
 
         document.getElementById("message").innerHTML =
-        "✅ Login সফল হয়েছে";
+            "✅ Login সফল হয়েছে!";
 
-        setTimeout(function(){
-
+        setTimeout(function() {
             window.location.href = "index.html";
-
-        },1000);
+        }, 1000);
 
     }
 
-});
+};
 
 </script>
 
