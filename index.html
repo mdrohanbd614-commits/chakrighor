@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChakriGhor - চাকরি খুঁজুন</title>
+
+<title>ChakriGhor - Login</title>
 
 <style>
 *{
@@ -14,221 +15,137 @@
 }
 
 body{
-  background:#f5f7fb;
-  color:#222;
-}
-
-header{
-  background:#0757c8;
-  color:white;
-  padding:15px 5%;
-}
-
-.nav{
-  max-width:1100px;
-  margin:auto;
+  min-height:100vh;
+  background:#f3f6fb;
   display:flex;
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
 }
 
-.logo{
-  font-size:24px;
-  font-weight:bold;
-}
-
-.login{
+.login-box{
+  width:92%;
+  max-width:400px;
   background:white;
-  color:#0757c8;
-  padding:9px 16px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.12);
 }
 
-.hero{
-  background:linear-gradient(135deg,#0757c8,#1689ff);
-  color:white;
+.logo{
   text-align:center;
-  padding:55px 20px;
+  color:#0757c8;
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:8px;
 }
 
-.hero h1{
-  font-size:34px;
-  margin-bottom:12px;
-}
-
-.hero p{
-  font-size:17px;
+.subtitle{
+  text-align:center;
+  color:#666;
   margin-bottom:25px;
 }
 
-.search{
-  max-width:700px;
-  margin:auto;
-  display:flex;
-  gap:8px;
+label{
+  display:block;
+  margin-bottom:7px;
+  font-weight:bold;
 }
 
-.search input{
-  flex:1;
-  padding:15px;
+input{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  margin-bottom:17px;
+  font-size:15px;
+}
+
+button{
+  width:100%;
+  padding:13px;
+  background:#0757c8;
+  color:white;
   border:0;
   border-radius:7px;
   font-size:16px;
-}
-
-.search button{
-  padding:15px 22px;
-  border:0;
-  border-radius:7px;
-  background:#ffb400;
-  color:#111;
   font-weight:bold;
   cursor:pointer;
 }
 
-.container{
-  max-width:1100px;
-  margin:35px auto;
-  padding:0 20px;
+button:hover{
+  background:#0649a8;
 }
 
-.title{
+.message{
   text-align:center;
-  margin-bottom:25px;
-}
-
-.jobs{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
-
-.job{
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
-}
-
-.job h3{
+  margin-top:15px;
   color:#0757c8;
-  margin-bottom:10px;
 }
 
-.job p{
-  margin:7px 0;
-  color:#555;
-}
-
-.apply{
-  display:inline-block;
-  margin-top:12px;
-  background:#0757c8;
-  color:white;
-  padding:10px 18px;
-  border-radius:6px;
-  text-decoration:none;
-}
-
-footer{
-  margin-top:50px;
-  background:#102033;
-  color:white;
+.back{
+  display:block;
   text-align:center;
-  padding:25px;
-}
-
-@media(max-width:600px){
-  .search{
-    flex-direction:column;
-  }
-
-  .hero h1{
-    font-size:27px;
-  }
+  margin-top:18px;
+  color:#0757c8;
+  text-decoration:none;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">ChakriGhor</div>
-    <a class="login" href="login.html">Login</a>
-  </div>
-</header>
+<div class="login-box">
 
-<section class="hero">
-  <h1>আপনার পছন্দের চাকরি খুঁজুন</h1>
-  <p>বাংলাদেশের বিভিন্ন চাকরির সুযোগ এক জায়গায়</p>
+  <div class="logo">ChakriGhor</div>
 
-  <div class="search">
-    <input type="text" id="searchBox" placeholder="চাকরির নাম লিখুন...">
-    <button onclick="searchJobs()">Search</button>
-  </div>
-</section>
+  <p class="subtitle">আপনার অ্যাকাউন্টে Login করুন</p>
 
-<div class="container">
+  <form onsubmit="loginUser(event)">
 
-  <div class="title">
-    <h2>সাম্প্রতিক চাকরি</h2>
-  </div>
+    <label>মোবাইল / Email</label>
+    <input
+      type="text"
+      id="username"
+      placeholder="আপনার মোবাইল বা Email"
+      required
+    >
 
-  <div class="jobs" id="jobList">
+    <label>Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="আপনার Password"
+      required
+    >
 
-    <div class="job">
-      <h3>Sales Executive</h3>
-      <p>🏢 কোম্পানি: ABC Company</p>
-      <p>📍 ঢাকা</p>
-      <p>💰 বেতন: ১৫,০০০ - ২৫,০০০ টাকা</p>
-      <a class="apply" href="login.html">Apply Now</a>
-    </div>
+    <button type="submit">Login</button>
 
-    <div class="job">
-      <h3>Office Assistant</h3>
-      <p>🏢 কোম্পানি: XYZ Limited</p>
-      <p>📍 মিরপুর, ঢাকা</p>
-      <p>💰 বেতন: ১২,০০০ - ১৮,০০০ টাকা</p>
-      <a class="apply" href="login.html">Apply Now</a>
-    </div>
+  </form>
 
-    <div class="job">
-      <h3>Computer Operator</h3>
-      <p>🏢 কোম্পানি: Digital BD</p>
-      <p>📍 উত্তরা, ঢাকা</p>
-      <p>💰 বেতন: ১৪,০০০ - ২২,০০০ টাকা</p>
-      <a class="apply" href="login.html">Apply Now</a>
-    </div>
+  <p class="message" id="message"></p>
 
-  </div>
+  <a class="back" href="index.html">← Home Page-এ ফিরে যান</a>
+
 </div>
 
-<footer>
-  <p>© 2026 ChakriGhor. All Rights Reserved.</p>
-  <p>চাকরি খুঁজুন • ক্যারিয়ার গড়ুন</p>
-</footer>
-
 <script>
-function searchJobs(){
 
-  let search = document.getElementById("searchBox").value.toLowerCase();
-  let jobs = document.querySelectorAll(".job");
+function loginUser(event){
 
-  jobs.forEach(function(job){
+  event.preventDefault();
 
-    let text = job.innerText.toLowerCase();
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
 
-    if(text.includes(search)){
-      job.style.display = "block";
-    }else{
-      job.style.display = "none";
-    }
+  if(username && password){
 
-  });
+    document.getElementById("message").innerText =
+    "Login সফল হয়েছে!";
+
+  }
+
 }
+
 </script>
 
 </body>
