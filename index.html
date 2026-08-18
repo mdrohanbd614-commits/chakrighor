@@ -3,149 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ChakriGhor - Login</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  min-height:100vh;
-  background:#f3f6fb;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.login-box{
-  width:92%;
-  max-width:400px;
-  background:white;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,.12);
-}
-
-.logo{
-  text-align:center;
-  color:#0757c8;
-  font-size:28px;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.subtitle{
-  text-align:center;
-  color:#666;
-  margin-bottom:25px;
-}
-
-label{
-  display:block;
-  margin-bottom:7px;
-  font-weight:bold;
-}
-
-input{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:7px;
-  margin-bottom:17px;
-  font-size:15px;
-}
-
-button{
-  width:100%;
-  padding:13px;
-  background:#0757c8;
-  color:white;
-  border:0;
-  border-radius:7px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#0649a8;
-}
-
-.message{
-  text-align:center;
-  margin-top:15px;
-  color:#0757c8;
-}
-
-.back{
-  display:block;
-  text-align:center;
-  margin-top:18px;
-  color:#0757c8;
-  text-decoration:none;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f4f7fb;min-height:100vh}
+header{background:#0757c8;color:white;padding:15px}
+.nav{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:24px;font-weight:bold}
+.home{color:white;text-decoration:none}
+.box{max-width:400px;margin:60px auto;background:white;padding:30px;border-radius:12px;box-shadow:0 4px 18px #ddd}
+h2{text-align:center;color:#0757c8;margin-bottom:25px}
+label{display:block;margin:12px 0 6px;font-weight:bold}
+input{width:100%;padding:13px;border:1px solid #ddd;border-radius:7px}
+button{width:100%;margin-top:20px;padding:13px;border:0;border-radius:7px;background:#0757c8;color:white;font-size:16px;font-weight:bold}
+.signup{text-align:center;margin-top:20px}
+.signup a{color:#0757c8;text-decoration:none;font-weight:bold}
+#msg{text-align:center;margin-top:15px}
 </style>
 </head>
 
 <body>
 
-<div class="login-box">
+<header>
+<div class="nav">
+<div class="logo">ChakriGhor</div>
+<a class="home" href="index.html">🏠 Home</a>
+</div>
+</header>
 
-  <div class="logo">ChakriGhor</div>
+<div class="box">
 
-  <p class="subtitle">আপনার অ্যাকাউন্টে Login করুন</p>
+<h2>Login</h2>
 
-  <form onsubmit="loginUser(event)">
+<form onsubmit="login(event)">
 
-    <label>মোবাইল / Email</label>
-    <input
-      type="text"
-      id="username"
-      placeholder="আপনার মোবাইল বা Email"
-      required
-    >
+<label>মোবাইল / Email</label>
+<input id="email" type="text" placeholder="মোবাইল বা Email লিখুন" required>
 
-    <label>Password</label>
-    <input
-      type="password"
-      id="password"
-      placeholder="আপনার Password"
-      required
-    >
+<label>Password</label>
+<input id="password" type="password" placeholder="Password লিখুন" required>
 
-    <button type="submit">Login</button>
+<button type="submit">Login</button>
 
-  </form>
+</form>
 
-  <p class="message" id="message"></p>
+<div id="msg"></div>
 
-  <a class="back" href="index.html">← Home Page-এ ফিরে যান</a>
+<div class="signup">
+Account নেই?
+<a href="signup.html">Sign Up</a>
+</div>
 
 </div>
 
 <script>
+function login(event){
+event.preventDefault();
 
-function loginUser(event){
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
 
-  event.preventDefault();
-
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-
-  if(username && password){
-
-    document.getElementById("message").innerText =
-    "Login সফল হয়েছে!";
-
-  }
-
+if(email && password){
+localStorage.setItem("chakrighor_user",email);
+document.getElementById("msg").innerHTML="✅ Login সফল!";
+setTimeout(function(){
+window.location.href="index.html";
+},800);
 }
-
+}
 </script>
 
 </body>
